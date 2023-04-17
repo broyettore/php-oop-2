@@ -1,16 +1,7 @@
 <?php
-
-require_once __DIR__ . "/assets/Models/Animal.php";
-require_once __DIR__ . "/assets/Models/Food.php";
-require_once __DIR__ . "/assets/Models/Other.php";
-require_once __DIR__ . "/assets/Models/Toy.php";
-require_once __DIR__ . "/assets/Models/Category.php";
-
-
-$card = new Category(
-    new Food("Royal Canin Mini Adult", 45.99, 545, ["prosciutto", "riso"]),
-    new Animal("Dog")
-);
+require_once __DIR__ . "/_partials/foodData/foodAData.php";
+require_once __DIR__ . "/_partials/otherData/otherData.php";
+require_once __DIR__ . "/_partials/toyData/toyData.php";
 
 ?>
 <!DOCTYPE html>
@@ -50,6 +41,239 @@ $card = new Category(
 
     <!-- main  -->
     <main>
+        <div class="container p-2">
+            <h2 class="fs-4 ms-h2">E-Shop Products:</h2>
+            <div class="products-ctn d-flex justify-content-between flex-wrap">
+                <div class="card mb-3" style="width: 26rem;">
+                    <img src="assets/images/p_4.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5">
+                        <?php echo $pupcake->product->name ?>
+                        </h5>
+                        <ul>
+                            <li>
+                                <?php echo $pupcake->animal->pet ?>
+                            </li>
+                            <li>
+                                Price:
+                            <?php echo $pupcake->product->price ?>
+                            </li>
+                            <li>
+                                Net Weight:
+                            <?php echo $pupcake->product->weight ?>
+                            </li>
+                            <li>
+                                Ingredients:
+                                <?php echo $pupcake->product->ingredients[0] ?>,
+                                <?php echo $pupcake->product->ingredients[1] ?>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mb-3" style="width: 26rem;">
+                    <img src="assets/images/p_2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5">
+                        <?php echo $puptreat->product->name ?>
+                        </h5>
+                        <ul>
+                            <li>
+                                <?php echo $puptreat->animal->pet ?>
+                            </li>
+                            <li>
+                                Price:
+                            <?php echo $puptreat->product->price ?>
+                            </li>
+                            <li>
+                                Net Weight:
+                            <?php echo $puptreat->product->weight ?>
+                            </li>
+                            <li>
+                                Ingredients:
+                                <?php echo $puptreat->product->ingredients[0] ?>,
+                                <?php echo $puptreat->product->ingredients[1] ?>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mb-3" style="width: 26rem;">
+                    <img src="assets/images/p_3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5">
+                        <?php echo $puppate->product->name ?>
+                        </h5>
+                        <ul>
+                            <li>
+                                <?php echo $puppate->animal->pet ?>
+                            </li>
+                            <li>
+                                Price:
+                            <?php echo $puppate->product->price ?>
+                            </li>
+                            <li>
+                                Net Weight:
+                            <?php echo $puppate->product->weight ?>
+                            </li>
+                            <li>
+                                Ingredients:
+                                <?php echo $puppate->product->ingredients[0] ?>,
+                                <?php echo $puppate->product->ingredients[1] ?>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mb-3" style="width: 26rem;">
+                    <img src="assets/images/p_1.jpg" class="card-img-top ms-img" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5">
+                        <?php echo $superpup->product->name ?>
+                        </h5>
+                        <ul>
+                            <li>
+                                <?php echo $superpup->animal->pet ?>
+                            </li>
+                            <li>
+                                Price:
+                            <?php echo $superpup->product->price ?>
+                            </li>
+                            <li>
+                                Material:
+                            <?php echo $superpup->product->material ?>
+                            </li>
+                            <li>
+                                Dimensions:
+                                <?php echo $superpup->product->dimensions ?>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mb-3" style="width: 26rem;">
+                    <img src="assets/images/p_5.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5">
+                        <?php echo $fashionpup->product->name ?>
+                        </h5>
+                        <ul>
+                            <li>
+                                <?php echo $fashionpup->animal->pet ?>
+                            </li>
+                            <li>
+                                Price:
+                            <?php echo $fashionpup->product->price ?>
+                            </li>
+                            <li>
+                                Material:
+                            <?php echo $fashionpup->product->material ?>
+                            </li>
+                            <li>
+                                Dimensions:
+                                <?php echo $fashionpup->product->dimensions ?>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mb-3" style="width: 26rem;">
+                    <img src="assets/images/p_6.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5">
+                        <?php echo $puphoody->product->name ?>
+                        </h5>
+                        <ul>
+                            <li>
+                                <?php echo $puphoody->animal->pet ?>
+                            </li>
+                            <li>
+                                Price:
+                            <?php echo $puphoody->product->price ?>
+                            </li>
+                            <li>
+                                Material:
+                            <?php echo $puphoody->product->material ?>
+                            </li>
+                            <li>
+                                Dimensions:
+                                <?php echo $puphoody->product->dimensions ?>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mb-3" style="width: 26rem;">
+                    <img src="assets/images/p_7.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5">
+                        <?php echo $chewypig->product->name ?>
+                        </h5>
+                        <ul>
+                            <li>
+                                <?php echo $chewypig->animal->pet ?>
+                            </li>
+                            <li>
+                                Price:
+                            <?php echo $chewypig->product->price ?>
+                            </li>
+                            <li>
+                                Dimensions:
+                                <?php echo $chewypig->product->dimensions ?>
+                            </li>
+                            <li>
+                               Description:
+                                <?php echo $chewypig->product->description ?>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mb-3" style="width: 26rem;">
+                    <img src="assets/images/p_8.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5">
+                        <?php echo $catwool->product->name ?>
+                        </h5>
+                        <ul>
+                            <li>
+                                <?php echo $catwool->animal->pet ?>
+                            </li>
+                            <li>
+                                Price:
+                            <?php echo $catwool->product->price ?>
+                            </li>
+                            <li>
+                                Dimensions:
+                                <?php echo $catwool->product->dimensions ?>
+                            </li>
+                            <li>
+                               Description:
+                                <?php echo $catwool->product->description ?>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card mb-3" style="width: 26rem;">
+                    <img src="assets/images/p_9.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fs-5">
+                        <?php echo $superbone->product->name ?>
+                        </h5>
+                        <ul>
+                            <li>
+                                <?php echo $superbone->animal->pet ?>
+                            </li>
+                            <li>
+                                Price:
+                            <?php echo $superbone->product->price ?>
+                            </li>
+                            <li>
+                                Dimensions:
+                                <?php echo $superbone->product->dimensions ?>
+                            </li>
+                            <li>
+                               Description:
+                                <?php echo $superbone->product->description ?>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <!-- /main  -->
 
