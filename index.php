@@ -1,4 +1,17 @@
 <?php
+
+require_once __DIR__ . "/assets/Models/Animal.php";
+require_once __DIR__ . "/assets/Models/Food.php";
+require_once __DIR__ . "/assets/Models/Other.php";
+require_once __DIR__ . "/assets/Models/Toy.php";
+require_once __DIR__ . "/assets/Models/Category.php";
+
+
+$card = new Category(
+    new Food("Royal Canin Mini Adult", 45.99, 545, ["prosciutto", "riso"]),
+    new Animal("Dog")
+);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +32,19 @@
 <body>
     <!-- header  -->
     <header>
+        <div class="container d-flex justify-content-between align-items-center p-2">
+            <div class="title d-flex align-items-center">
+                <h1 class="fs-4">My Little Friend</h1>
+            </div>
+            <nav>
+                <ul class="d-flex align-items-center">
+                    <li class="p-2 m-2">Services</li>
+                    <li class="p-2 m-2">About Us</li>
+                    <li class="p-2 m-2">Gallery</li>
+                    <li class="p-2 m-2 pe-0 me-0">Contact</li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <!-- /header  -->
 
