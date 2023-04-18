@@ -10,8 +10,8 @@ class Other extends Product {
     public function __construct(string $_img, string $_name, string $_animal, int $_price, string $_dimensions, string $_material)
     {
         parent::__construct($_img, $_name, $_animal, $_price);
-        $this->dimensions = $_dimensions;
-        $this->material = $_material;
+        $this->dimensions = "Dimensions: " . $_dimensions;
+        $this->material = "Material: " . $_material;
     }
 
 }

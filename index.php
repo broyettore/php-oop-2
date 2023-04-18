@@ -6,52 +6,101 @@ require_once __DIR__ . "/Models/Product.php";
 
 
 /*********** FOOD   ********* */
-// $pupcake = new Category(
-//     new Food("My puppy mini-cakes", 25, 100, ["chocolate", "banana"]),
-//     new Animal("Dog")
-// );
+$pupcake = new Food(
+    "assets/images/p_4.jpg", 
+    "My puppy mini-cakes", 
+    "Dog",
+    25, 
+    100, 
+    "chocolate, banana",
+);
 
-// $puptreat = new Category(
-//     new Food("Pup's Chicken-Treats", 30, 250, ["chicken", "vitamins"]),
-//     new Animal("Dog")
-// );
+$puptreat = new Food(
+    "assets/images/p_2.jpg", 
+    "Pup's Chicken-Treats", 
+    "Dog",
+     20,
+     250,
+    "chicken", "vitamins"
+);
 
-// $puppate = new Category(
-//     new Food("Scooby Dough", 10, 30, ["ground meat", "chicken-stock"]),
-//     new Animal("Dog")
-// );
+$puppate = new Food(
+        "assets/images/p_3.jpg", 
+        "Scooby Dough",
+        "Dog",
+        10, 
+        30, 
+        "ground meat, chicken-stock",
+);
 
 /*********** OTHERS ********* */
-// $superpup = new Category(
-//     new Other("Super Pet Coat", 15, "M", "Cotton"),
-//     new Animal("Dog/Cat")
-// );
+$superpup = new Other (
+    "assets/images/p_1.jpg",
+    "Super Pet Coat",
+    "Dog", 
+    15, 
+    "M", 
+    "Cotton",
+);
 
-// $fashionpup = new Category(
-//     new Other("Wealthy Dog Drip", 30, "XS", "Flax"),
-//     new Animal("Dog")
-// );
+$fashionpup = new Other(
+    "assets/images/p_5.jpg",
+    "Wealthy Dog Drip",
+    "Dog",
+    30, 
+    "XS", 
+    "Flax"
+);
 
-// $puphoody = new Category(
-//     new Other("Slim Shady Doggy", 15, "L", "Wool"),
-//     new Animal("Dog")
-// );
+$puphoody = new Other(
+    "assets/images/p_6.jpg",
+    "Slim Shady Doggy", 
+    "Dog",
+    15, 
+    "L", 
+    "Wool"
+);
 
-    /*********** TOYS********* */
-// $chewypig = new Category(
-//     new Other("Chewy Pig", 8, "8cm x 16cm", "a Super chewy pig for your puppy"),
-//     new Animal("Dog")
-// );
+/*********** TOYS********* */
+$chewypig = new Toy(
+        "assets/images/p_7.jpg",
+        "Chewy Pig", 
+        "Dog/Cat",
+        8, 
+        "8cm x 16cm", 
+        "a Super chewy pig for your puppy",
+);
 
-// $catwool = new Category(
-//     new Other("Wooly Cat wool", 10, "20cm x 20cm", "a wool toy to keep your cat busy"),
-//     new Animal("Cat")
-// );
+$catwool = new Toy(
+    "assets/images/p_8.jpg",
+    "Wooly Cat wool",
+    "Cat",
+    10, 
+    "20cm x 20cm", 
+    "a wool toy to keep your cat busy"
+);
 
-// $superbone = new Category(
-//     new Other("Bone n Bones", 5, "10cm x 10cm", "toy shaped like a bone, popular among pups"),
-//     new Animal("Dog")
-// );
+$superbone = new Toy(
+    "assets/images/p_9.jpg",
+    "Bone n Bones",
+    "Dog",
+    5, 
+    "10cm x 10cm", 
+    "toy shaped like a bone, popular among pups"
+);
+
+// Array of products 
+$productList = [
+    $pupcake,
+    $puptreat,
+    $puppate,
+    $superpup,
+    $fashionpup,
+    $puphoody,
+    $chewypig,
+    $catwool,
+    $superbone,
+]
 
 ?>
 <!DOCTYPE html>
@@ -94,82 +143,41 @@ require_once __DIR__ . "/Models/Product.php";
         <div class="container p-2">
             <h2 class="fs-4 ms-h2">E-Shop Products:</h2>
             <div class="products-ctn d-flex justify-content-between flex-wrap">
+                <?php foreach($productList as $product): ?>
                 <div class="card mb-3" style="width: 26rem;">
-                    <img src="assets/images/p_4.jpg" class="card-img-top" alt="...">
+                    <img src=<?php echo $product->img ?> class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title fs-5">
-                        <?php echo $pupcake->product->name ?>
+                        <?php echo $product->name ?>
                         </h5>
                         <ul>
                             <li>
-                                <?php echo $pupcake->animal->pet ?>
+                                <?php echo $product->animal ?>
                             </li>
                             <li>
                                 Price:
-                            <?php echo $pupcake->product->price ?>
+                            <?php echo $product->price ?>
                             </li>
                             <li>
-                                Net Weight:
-                            <?php echo $pupcake->product->weight ?>
+                            <?php if(!isset($product->weight)){
+                                echo $product->dimensions;
+                            } else {
+                                echo $product->weight;
+                            } ?>
                             </li>
                             <li>
-                                Ingredients:
-                                <?php echo $pupcake->product->ingredients[0] ?>,
-                                <?php echo $pupcake->product->ingredients[1] ?>
+                                <?php if(!isset($product->material) && !isset($product->description)) {
+                                        echo $product->ingredients;
+                                } elseif (!isset($product->ingredients) && !isset($product->description)) {
+                                    echo $product-> material;
+                                } elseif (!isset($product->ingredients) && !isset($product->material)) {
+                                    echo $product->description;
+                                } ?>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="card mb-3" style="width: 26rem;">
-                    <img src="assets/images/p_1.jpg" class="card-img-top ms-img" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title fs-5">
-                        <?php echo $superpup->product->name ?>
-                        </h5>
-                        <ul>
-                            <li>
-                                <?php echo $superpup->animal->pet ?>
-                            </li>
-                            <li>
-                                Price:
-                            <?php echo $superpup->product->price ?>
-                            </li>
-                            <li>
-                                Material:
-                            <?php echo $superpup->product->material ?>
-                            </li>
-                            <li>
-                                Dimensions:
-                                <?php echo $superpup->product->dimensions ?>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card mb-3" style="width: 26rem;">
-                    <img src="assets/images/p_7.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title fs-5">
-                        <?php echo $chewypig->product->name ?>
-                        </h5>
-                        <ul>
-                            <li>
-                                <?php echo $chewypig->animal->pet ?>
-                            </li>
-                            <li>
-                                Price:
-                            <?php echo $chewypig->product->price ?>
-                            </li>
-                            <li>
-                                Dimensions:
-                                <?php echo $chewypig->product->dimensions ?>
-                            </li>
-                            <li>
-                               Description:
-                                <?php echo $chewypig->product->description ?>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </main>
@@ -179,3 +187,5 @@ require_once __DIR__ . "/Models/Product.php";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
