@@ -72,11 +72,11 @@ $chewypig = new Toy(
 
 $catwool = new Toy(
     "assets/images/p_8.jpg",
-    "Wooly Cat wool",
-    "Cat",
-    10, 
+    "Super Wool",
+    "Dog/Cat",
+    11, 
     "20cm x 20cm", 
-    "a wool toy to keep your cat busy"
+    "a wool toy to keep your pup/cat busy"
 );
 
 $superbone = new Toy(
@@ -100,11 +100,6 @@ $productList = [
     $catwool,
     $superbone,
 ];
-
-
-
-
-$showIcon = $pupcake->get_Icon('<i class="fa-solid fa-dog"></i>');
 
 ?>
 <!DOCTYPE html>
@@ -158,11 +153,15 @@ $showIcon = $pupcake->get_Icon('<i class="fa-solid fa-dog"></i>');
                         </h5>
                         <ul>
                             <li>
-                                <?php echo $showIcon . " " . $product->animal ?>
+                                <?php echo $product->get_Icon('<i class="fa-solid fa-dog"></i>') . " " . $product->animal ?>
                             </li>
                             <li>
                                 Price:
-                            <?php echo $product->price ?>
+                                <?php try { 
+                                    echo $product->stock($product->price);
+                                } catch (Exception $e) {
+                                    echo $e->getMessage();
+                                    } ?>
                             </li>
                             <li>
                             <?php if(!isset($product->weight)){

@@ -15,13 +15,13 @@ class Product {
         $this->img = $_img;
         $this->name = $_name;
         $this->animal = $_animal;
-        $this->price = "€" . $_price;
+        $this->price = $_price;
     }
 
-    function isNumber($_element) {
-        if (!is_int($_element)) {
-            throw new Exception("Is not a number, please proceed to correct it");
+    function stock($_element) {
+        if ($_element <= 10) {
+            throw new Exception("This item is unavailable at the moment");
         }
-        return $_element;
+        return "€" . $_element;
     }
 }
