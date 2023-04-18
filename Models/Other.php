@@ -1,17 +1,15 @@
 <?php
+require_once __DIR__ . "/Product.php";
 
-class Other {
+class Other extends Product {
 
-    public $name;
-    public $price;
     public $dimensions;
     public $material;
 
 
-    public function __construct(string $_name, int $_price, string $_dimensions, string $_material)
+    public function __construct(string $_img, string $_name, string $_animal, int $_price, string $_dimensions, string $_material)
     {
-        $this->name = $_name;
-        $this->price = "€" . $_price;
+        parent::__construct($_img, $_name, $_animal, $_price);
         $this->dimensions = $_dimensions;
         $this->material = $_material;
     }
