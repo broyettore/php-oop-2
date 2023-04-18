@@ -4,7 +4,6 @@ require_once __DIR__ . "/Models/Toy.php";
 require_once __DIR__ . "/Models/Other.php";
 require_once __DIR__ . "/Models/Product.php";
 
-
 /*********** FOOD   ********* */
 $pupcake = new Food(
     "assets/images/p_4.jpg", 
@@ -100,7 +99,12 @@ $productList = [
     $chewypig,
     $catwool,
     $superbone,
-]
+];
+
+
+
+
+$showIcon = $pupcake->get_Icon('<i class="fa-solid fa-dog"></i>');
 
 ?>
 <!DOCTYPE html>
@@ -115,6 +119,8 @@ $productList = [
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
     <!-- Bootstrap  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- FA  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- my css  -->
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Php E-commerce</title>
@@ -152,7 +158,7 @@ $productList = [
                         </h5>
                         <ul>
                             <li>
-                                <?php echo $product->animal ?>
+                                <?php echo $showIcon . " " . $product->animal ?>
                             </li>
                             <li>
                                 Price:

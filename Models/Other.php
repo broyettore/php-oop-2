@@ -1,8 +1,10 @@
 <?php
 require_once __DIR__ . "/Product.php";
+require_once __DIR__ . "/icons.php";
 
 class Other extends Product {
 
+    use Icon;
     public $dimensions;
     public $material;
 

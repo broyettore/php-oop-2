@@ -18,4 +18,10 @@ class Product {
         $this->price = "€" . $_price;
     }
 
+    function isNumber($_element) {
+        if (!is_int($_element)) {
+            throw new Exception("Is not a number, please proceed to correct it");
+        }
+        return $_element;
+    }
 }

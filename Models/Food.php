@@ -1,8 +1,10 @@
 <?php
 require_once __DIR__ . "/Product.php";
+require_once __DIR__ . "/icons.php";
 
 class Food extends Product {
 
+    use Icon;
     public $weight;
     public $ingredients;
 
@@ -12,4 +14,6 @@ class Food extends Product {
         $this->weight = "Net Weight: " . $_weight . "g";
         $this->ingredients = "Ingredients: " . $_ingredients;
     }
+
 };
+
